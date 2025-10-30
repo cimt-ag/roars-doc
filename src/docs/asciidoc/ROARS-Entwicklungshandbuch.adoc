@@ -1,0 +1,481 @@
+= Projektbeschreibung ROARS: Entwicklungshandbuch
+:author: Thomas Peetz
+:email: <thomas.peetz@cimt-ag.de>
+:doctype: article
+:sectnums:
+:sectnumlevels: 4
+:toc:
+:toclevels: 4
+:table-caption!:
+:counter: table-number: 0
+
+[title="Dokumenthistorie", id="Table-{counter:table-number}", options="header"]
+|===
+| Version | Datum      | Autor        | Änderungsgrund / Bemerkungen
+| 0.1.0   | 30.10.2025 | Thomas Peetz | Ersterstellung
+|===
+
+== Allgemeines
+
+=== Zweck des Dokumentes
+
+Das Entwicklungshandbuch beschreibt die Werkzeuge und die Vorgehensweise bei der Entwicklung
+im Projekt kontor-spring und der Erstellung der Dokumentation.
+
+=== Verwendete Tools
+
+== Erstellung der Dokumentation
+
+Die Dokumentation des Projektes wird mit ((Asciidoctor))<<asciidoctor>> geschrieben.
+Die Dokumente erhalten ihre Namen nach dem jeweiligen Hauptdokument.
+
+=== Quellcode Verwaltung
+
+Die Asciidoctor-Dateien haben die Endung `.adoc`.
+
+=== Buildsystem
+
+Zur Erstellung der PDF-Dateien aus den Asciidoctor-Dateien wird das Buildsystem ((Gradle))<<gradle>> verwendet.
+Die Dateien für die Dokumente liegen im Verzeichnis `src/docs/asciidoc`.
+
+Der Gradle Build wird über die Datei `build.gradle` definiert.
+
+
+== Einführung
+
+=== Zweck
+
+==== Logisches Datenmodell
+
+===== Benutzer ER-Diagramm
+
+[mermaid, kontor-user-er, png]
+.Benutzer ER-Diagramm
+....
+erDiagram
+    user {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   email
+        boolean  enabled
+        string   firstName
+        string   lastName
+        string   password
+        string   token
+        boolean  tokenExpired
+        string   userName UNIQUE
+    }
+    role {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name
+    }
+    authorization_matrix {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   user_id FK
+        string   role_id FK
+    }
+	module_data {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+		boolean  import_data
+        string   module_name UNIQUE
+	}
+    user ||--o{ authorization_matrix : "matrix"
+    role ||--o{ authorization_matrix : "matrix"
+....
+
+
+===== Comics ER-Diagramm
+
+[mermaid, kontor-comics-er, png]
+.Comics ER-Diagramm
+....
+erDiagram
+    comic {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        boolean  completed
+        boolean  currentOrder
+		string   title
+		string   publisher_id FK
+    }
+    volume {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name
+        string   comic_id FK
+    }
+    issue {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        boolean  in_stock
+        boolean  is_read
+        string   issue_number
+        string   comic_id FK
+        string   volume_id FK
+    }
+    publisher {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name
+    }
+    artist {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name
+    }
+    story_arc {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name
+        string   comic_id FK
+    }
+    trade_paperback {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        int      issueStart
+        int      issueEnd
+        string   name
+        string   comic_id FK
+    }
+    worktype {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name
+    }
+    comic_work {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   artist_id FK
+        string   comic_id FK
+        string   worktype_id FK
+    }
+    comic ||--o{ comic_work : "1"
+    artist ||--o{ comic_work : "1"
+    worktype ||--o{ comic-work : "1"
+    publisher ||--o{ comic : "1"
+    comic ||--o{ issue : "1"
+    comic ||--o{ volume : "1"
+    comic ||--o{ story_arc : "1"
+    comic ||--o{ trade_paperback : "1"
+    volume ||--o{ issue : "1"
+....
+
+===== TYSC ER-Diagramm
+
+[mermaid, kontor-tysc-er, png]
+.TYSC ER-Diagramm
+....
+erDiagram
+    sport {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name
+    }
+    team {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name
+        string   short_name
+        string   sport_id FK
+    }
+    field_position {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name
+        string   short_name
+        string   sport_id FK
+    }
+    rooster {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        int      year
+        string   player_id FK
+        string   position_id FK
+        string   team_id FK
+    }
+    player {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   first_name
+        string   last_name
+    }
+    vendor {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name
+    }
+    card_set {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+		boolean  insert_set
+        string   name
+		boolean  parallel_set
+        string   vendor_id FK
+    }
+    card {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        int      cardNumber
+        int      year
+		string   card_set FK
+        string   rooster_id FK
+        string   vendor_id FK
+    }
+    sport ||--o{ team : "1"
+    sport ||--o{ field_position : "1"
+    field_position ||--o{ rooster : "1"
+    player ||--o{ rooster : "1"
+    team ||--o{ rooster : "1"
+    vendor ||--o{ card : "1"
+    card_set ||--o{ card : "1"
+    rooster ||--o{ card : "1"
+....
+
+===== Bookshelf ER-Diagramm
+
+[mermaid, kontor-bookshelf-er, png]
+.Bookshelf ER-Diagramm
+....
+erDiagram
+    article {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   title
+    }
+	book {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+		string   isbn UNIQUE
+        string   title
+		int      year
+		string   publisher_id FK
+	}
+	bookshelf_publisher {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   name UNIQUE
+	}
+	author {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   first_name
+        string   last_name
+    }
+	article_author {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   article_id FK
+        string   author_id FK
+	}
+	book_author {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+        string   book_id FK
+        string   author_id FK
+	}
+    publisher ||--o{ book : "1"
+    article ||--o{ article_author : "1"
+    author ||--o{ article_author : "1"
+    book ||--o{ book_author : "1"
+    author ||--o{ book_author : "1"
+....
+
+===== Mail ER-Diagramm
+
+[mermaid, kontor-mail-er, png]
+.Mail ER-Diagramm
+....
+erDiagram
+    mail {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+		string   subject
+        string   content
+        datetime received_date
+        datetime sent_date
+    }
+	mail_account {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+		string   host
+        string   password
+		int      port
+		string   protocol
+		boolean  start_tls
+		string   user_name
+	}
+	mail_address {
+        string   id PK
+		datetime created_date
+		datetime last_modified_date
+		int      version
+		string   internet_address UNIQUE
+        string   personal
+		string   user_id FK
+	}
+    user ||--o{ mail_address : "1"
+....
+
+==== Einschränkungen
+
+== Anforderungen der Domäne
+
+=== Systemfunktionen
+
+==== Anwendungsfälle
+
+==== Akteure
+
+==== Zielgruppen
+
+=== Anforderungen
+
+==== Anforderungen an externe Schnittstellen
+
+==== Funktionale Anforderungen
+
+==== Qualitätsanforderungen
+
+==== Randbedingungen
+
+==== Weitere Anforderungen
+
+==== Wartungs- und Supportinformationen
+
+=== Verifikation
+
+== Projektbeschreibung
+
+=== Ausgangslage
+
+//==== Rechtliche Vorgaben und Rahmenbedingungen
+//=== Rahmenbedingungen
+
+//==== Vorhandene Regelungen
+
+=== Projektziele
+
+=== Projektabgrenzung
+
+//=== Voraussichtliche Kosten
+
+//=== Projektrisiken
+
+//==== Produktivität
+
+//==== Finanzielle Risiken
+
+//==== Akzeptanz
+
+== Projektorganisation
+
+=== Projekt-Aufbauorganisation
+
+=== Rollendefinition
+
+//==== Projektauftraggeber
+
+//==== Projektausschuss
+
+//==== Beratung / Qualitätssicherung
+
+==== Projekteiter
+
+==== Projektteam
+
+==== Liste der Stakeholder
+
+=== Projektablauforganisation
+
+==== Projekt-Phasen
+
+===== Erstellung der Projektdokumentation
+
+
+== Verschiedenes
+
+=== Erreichbarkeiten
+
+[bibliography]
+== Referenzen
+
+- [[[asciidoctor]]] http://asciidoctor.org
+- [[[gitea]]] http://www.gitea.org
+- [[[gradle]]] http://www.gradle.org
+- [[[jenkins]]] http://jenkins-ci.org
+
+[glossary]
+== Glossar
+
+[index]
+== Index
+
+== Verzeichnisse
+
+=== Abbildungsverzeichnis
+
+=== Tabellenverzeichnis
+
+<<Table-1, Tabelle 1>> <<Table-1>>
+

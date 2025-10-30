@@ -1,0 +1,151 @@
+= Projektbeschreibung ROARS: Betriebshandbuch
+:author: Thomas Peetz
+:email: <thomas.peetz@cimt-ag.de>
+:doctype: article
+:sectnums:
+:sectnumlevels: 4
+:toc:
+:toclevels: 4
+:table-caption!:
+:counter: table-number: 0
+
+[title="Dokumenthistorie", id="Table-{counter:table-number}", options="header"]
+|===
+| Version | Datum      | Autor        | Änderungsgrund / Bemerkungen
+| 0.1.0   | 30.10.2025 | Thomas Peetz | Ersterstellung
+|===
+
+== Allgemeines
+
+=== Zweck des Dokumentes
+
+Das Entwicklungshandbuch beschreibt die Werkzeuge und die Vorgehensweise bei der Entwicklung
+im Projekt kontor-spring und der Erstellung der Dokumentation.
+
+=== Verwendete Tools
+
+== Einführung
+
+=== Zweck
+
+=== Stakeholder des Systems
+
+=== Systemumfang
+
+==== Zielsetzung des Systems
+
+=== Systemübersicht
+
+==== Systemkontext
+
+==== Systemarchitektur
+
+==== Systemschnittstellen
+
+===== Realisierte Schnittstellen
+
+===== Verwendete Schnittstellen
+
+
+==== Einschränkungen
+
+== Anforderungen der Domäne
+
+=== Systemfunktionen
+
+==== Anwendungsfälle
+
+==== Akteure
+
+==== Zielgruppen
+
+=== Anforderungen
+
+==== Anforderungen an externe Schnittstellen
+
+==== Funktionale Anforderungen
+
+==== Qualitätsanforderungen
+
+==== Randbedingungen
+
+==== Weitere Anforderungen
+
+==== Wartungs- und Supportinformationen
+
+=== Verifikation
+
+== Projektbeschreibung
+
+=== Ausgangslage
+
+//==== Rechtliche Vorgaben und Rahmenbedingungen
+//=== Rahmenbedingungen
+
+//==== Vorhandene Regelungen
+
+=== Projektziele
+
+=== Projektabgrenzung
+
+//=== Voraussichtliche Kosten
+
+//=== Projektrisiken
+
+//==== Produktivität
+
+//==== Finanzielle Risiken
+
+//==== Akzeptanz
+
+== Projektorganisation
+
+=== Projekt-Aufbauorganisation
+
+=== Rollendefinition
+
+//==== Projektauftraggeber
+
+//==== Projektausschuss
+
+//==== Beratung / Qualitätssicherung
+
+==== Projekteiter
+
+==== Projektteam
+
+==== Liste der Stakeholder
+
+=== Projektablauforganisation
+
+==== Projekt-Phasen
+
+===== Erstellung der Projektdokumentation
+
+
+== Verschiedenes
+
+=== Erreichbarkeiten
+
+[bibliography]
+== Referenzen
+
+- [[[asciidoctor]]] http://asciidoctor.org
+- [[[gitea]]] http://www.gitea.org
+- [[[gradle]]] http://www.gradle.org
+- [[[jenkins]]] http://jenkins-ci.org
+
+[glossary]
+== Glossar
+
+[index]
+== Index
+
+== Verzeichnisse
+
+=== Abbildungsverzeichnis
+
+=== Tabellenverzeichnis
+
+<<Table-1, Tabelle 1>> <<Table-1>>
+

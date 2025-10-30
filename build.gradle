@@ -1,0 +1,92 @@
+buildscript {
+    configurations.classpath {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            if (details.requested.group == 'com.burgstaller' && details.requested.name == 'okhttp-digest' && details.requested.version == '1.10') {
+                details.useTarget "io.github.rburgst:${details.requested.name}:1.21"
+                details.because 'Dependency has moved'
+            }
+        }
+    }
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'maven-publish'
+    alias(libs.plugins.asciidoctorPdf)
+    alias(libs.plugins.asciidoctorConvert)
+    alias(libs.plugins.asciidoctorGems)
+}
+
+configurations {
+    archives
+}
+
+repositories {
+    mavenCentral()
+    ruby.gems()
+}
+
+dependencies {
+    asciidoctorGems libs.rouge
+    //asciidoctorGems libs.diagram
+}
+
+def pdfFile = layout.buildDirectory.file("docs/asciidocPdf/de/Entwicklungshandbuch.pdf")
+def pdfArtifact = artifacts.add('archives', pdfFile.get().asFile) {
+    type 'pdf'
+    builtBy asciidoctorPdf
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = group + '.docs'
+            artifactId = project.name
+            artifact pdfArtifact
+        }
+    }
+    repositories {
+        maven {
+	    name = "gitlabPackageRegistry"
+            url = uri("https://gitlab.com/api/v4/projects/64726715/packages/maven")	
+	    credentials(PasswordCredentials)
+        }
+    }
+}
+
+final BUILD_DATE = new Date().format('dd.MM.yyyy').toString()
+
+asciidoctorPdf {
+    dependsOn asciidoctorGemsPrepare
+
+    baseDirFollowsSourceFile()
+
+    asciidoctorj {
+        modules {
+            diagram.use()
+        }
+        requires 'rouge'
+        attributes 'build-gradle':       file('build.gradle'),
+                   'endpoint-url':       'https://www.cimt-ag.de',
+                   'source-highlighter': 'rouge',
+                   'imagesdir':          './images',
+                   'toc':                'left',
+                   'toc-title':          'Inhaltsverzeichnis',
+                   'revdate':            BUILD_DATE,
+                   'revnumber':          { project.version.toString() },
+                   'revremark':          'Entwurf',
+                   'chapter-label':      '',
+                   'icons':              'font',
+                   'idprefix':           'id_',
+                   'idseparator':        '-',
+                   'docinfo1':           ''
+    }
+}
+
+build.dependsOn asciidoctorPdf
+
+wrapper {
+    gradleVersion = "8.6"
+}

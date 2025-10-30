@@ -1,0 +1,18 @@
+[versions]
+gradle = "8.6"
+asciidoctor = "4.0.2"
+rouge = "3.15.0"
+#diagram = "2.2.2"
+diagram = "2.3.1"
+
+[libraries]
+asciidoctorGradleJvmGems = { module = "org.asciidoctor:asciidoctor-gradle-jvm-gems", version.ref= "asciidoctor" }
+asciidoctorGradleJvm = { module = "org.asciidoctor:asciidoctor-gradle-jvm", version.ref= "asciidoctor" }
+asciidoctorGradleJvmPdf = { module = "org.asciidoctor:asciidoctor-gradle-jvm-pdf", version.ref= "asciidoctor" }
+rouge = { module = "rubygems:rouge", version.ref = "rouge" }
+diagram = { module = "rubygems:asciidoctor-diagram", version.ref = "diagram" }
+
+[plugins]
+asciidoctorPdf = { id = "org.asciidoctor.jvm.pdf", version.ref = "asciidoctor" }
+asciidoctorConvert = { id = "org.asciidoctor.jvm.convert", version.ref = "asciidoctor" }
+asciidoctorGems = { id = "org.asciidoctor.jvm.gems", version.ref = "asciidoctor" }

@@ -1,2 +1,2 @@
 # roars-doc
-Documentation for development an d operations for ROARS
+Documentation for development and operations for ROARS

@@ -78,9 +78,9 @@ Die Projektdokumentation besteht aus mehreren Dokumenten, die jeweils die Entwic
 [appendix, bibliography]
 == Referenzen
 
-* [[[ehb, 1]]] Thomas Peetz. ROARS-Entwicklungshandbuch. 2025
-* [[[bhb, 2]]] Thomas Peetz. ROARS-Betriebshandbuch. 2025
-* [[[phb, 3]]] THomas Peetz. ROARS-Projekthandbuch. 2025
+- [[[ehb]]] Thomas Peetz. ROARS-Entwicklungshandbuch. 2025
+- [[[bhb]]] Thomas Peetz. ROARS-Betriebshandbuch. 2025
+- [[[phb]]] THomas Peetz. ROARS-Projekthandbuch. 2025
 
 [appendix, glossary]
 == Glossar

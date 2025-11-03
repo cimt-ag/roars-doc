@@ -23,7 +23,11 @@ Das Projekthandbuch beschreibt die Organisation und die Dokumentation des Projek
 
 == Projektbeschreibung
 
+Das Projekt ROARS ist eine Weiterentwicklung des Projektes <<purr>>(((PURR))).
+
 === Ausgangslage
+
+Das Projekt ((PURR)) wurde als Ausbildungsprojekt gestartet und erschwert durch die Verwendung von ((PHP)) und dem Datenmodell die Weiterentwicklung.
 
 ==== Rechtliche Vorgaben und Rahmenbedingungen
 
@@ -32,6 +36,8 @@ Das Projekthandbuch beschreibt die Organisation und die Dokumentation des Projek
 //==== Vorhandene Regelungen
 
 === Projektziele
+
+Dieses Projekt soll ((PURR)) ablösen und dabei neue Anforderungen integrieren.
 
 === Projektabgrenzung
 
@@ -49,6 +55,10 @@ Das Projekthandbuch beschreibt die Organisation und die Dokumentation des Projek
 
 === Projekt-Aufbauorganisation
 
+==== Teilprojekte
+
+Die einzelnen  Komponenten werden in separaten Repositories entwickelt. Die Details zu den Komponenten ist im Entwicklungshandbuch <<ehb>> beschrieben.
+
 === Rollendefinition
 
 //==== Projektauftraggeber
@@ -57,7 +67,7 @@ Das Projekthandbuch beschreibt die Organisation und die Dokumentation des Projek
 
 ==== Qualitätssicherung
 
-==== Projekteiter
+==== Projektleiter
 
 ==== Projektteam
 
@@ -87,6 +97,7 @@ Die Projektdokumentation besteht aus mehreren Dokumenten, die jeweils die Entwic
 
 [horizontal, glossary]
 [[roars]]ROARS:: Reservation Objects Attendance Retrieval System
+[[purr]]PURR:: Platz- und Raum-Reservierung
 
 [appendix, index]
 == Index

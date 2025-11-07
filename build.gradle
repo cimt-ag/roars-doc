@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    asciidoctorGems libs.rouge
+    //asciidoctorGems libs.rouge
     //asciidoctorGems libs.diagram
 }
 
@@ -67,7 +67,7 @@ asciidoctorPdf {
         modules {
             diagram.use()
         }
-        requires 'rouge'
+        //requires 'rouge'
         attributes 'build-gradle':       file('build.gradle'),
                    'endpoint-url':       'https://www.cimt-ag.de',
                    'source-highlighter': 'rouge',

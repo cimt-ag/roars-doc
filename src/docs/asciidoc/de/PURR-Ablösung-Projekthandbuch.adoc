@@ -1,0 +1,147 @@
+= Projektbeschreibung PURR Ablösung
+:author: Thomas Peetz
+:email: <thomas.peetz@cimt-ag.de>
+:doctype: article
+:sectnums:
+:sectnumlevels: 4
+:toc:
+:toclevels: 4
+:table-caption!:
+:counter: table-number: 0
+
+[title="Dokumenthistorie", id="Table-{counter:table-number}", options="header"]
+|===
+| Version | Datum      | Autor        | Änderungsgrund / Bemerkungen
+| Draft   | 08.12.2025 | Thomas Peetz | Ersterstellung
+|===
+
+== Allgemeines
+
+=== Zweck des Dokumentes
+
+Zur Ablösung der Platz- und Raumreservierung <<purr>>(((PURR))) soll ein neues Projekt aufgesetzt werden.
+Dieses Dokument dient als Grundlage für das Kickoff-Meeting, das im Januar 2026 stattfinden soll.
+Es werden die Gründe für eine Neuentwicklung, die anfängliche Projektorganisation und die ersten Anforderungen beschrieben.
+
+== Projektbeschreibung
+
+Ein Platzreservierungs-Tool soll die Planung für die Leitung und die einzelnen Mitarbeiter erleichtern.
+Neben der statistischen Auswertung der Auslastung der Arbeitsplätze und der Koordination der Mitarbeiter untereinander, sowie der Nutzung der
+Meetingräume ist auch die Einhaltung der Büroanwesenheit eine zentrale Aufgabe der Lösung.
+
+=== Ausgangslage
+
+In der cimt objects Berlin wurde die Software (((Deskbird))) eingesetzt und durch die in Hamburg erstellte Lösung <<purr>>(((PURR))) ersetzt.
+
+Das Projekt ((PURR)) wurde als Ausbildungsprojekt in der cimt consulting Hamburg gestartet und wird dort von Werkstudenten etnwickelt.
+Die Anforderungen wurden hauptsächlich durch den Hamburger Standort bestimmt.
+Durch die erweiterte Nutzung durch den Berliner Standort wurden weitere Anforderungen gestellt, die durch Berliner Kollegen bearbeitet wurden.
+Die neuen Anforderungen wurden nur zum Teil umgesetzt, da die Architektur und das Datenmodell eine Weiterentwicklung erschwert haben.
+
+Die Verwendung von ((PHP)) soll durch andere Frameworks ersetzt werden.
+
+==== Rechtliche Vorgaben und Rahmenbedingungen
+
+Durch die Speicherung der Reservierungen der Mitarbeiter der cimt consulting und der cimt objects sind die Datenschutzrichtlinien strikt einzuhalten.
+
+=== Rahmenbedingungen
+
+==== Vorhandene Regelungen
+
+Für den Standort Hamburg ist die Bestätigung der Reservierung am Vortag der Reservierung eine der Anforderungen, die im neuen Projekt ebenfalls enthalten sein muss.
+
+=== Projektziele
+
+Dieses Projekt soll ((PURR)) ablösen und dabei neue Anforderungen integrieren.
+Der ursprüngliche Gedanke das Projekt zur Ausbildung zu nutzen, soll auch in diesem Projekt umgesetzt werden.
+
+=== Projektabgrenzung
+
+=== Voraussichtliche Kosten
+
+=== Projektrisiken
+
+==== Produktivität
+
+==== Finanzielle Risiken
+
+==== Akzeptanz
+
+== Projektorganisation
+
+=== Projekt-Aufbauorganisation
+
+==== Teilprojekte
+
+=== Rollendefinition
+
+Das Projekt soll mit Hilfe von agilen Methoden umgesetzt werden.
+
+==== Projektauftraggeber
+
+Das Projekt wird von der cimt objects Berlin initiiert und betrieben.
+Eine Ausweitung der Nutzung durch andere Standorte und andere cimt Gesellschaften wird bei Akzeptanz nach Inbetriebnahme berücksichtigt.
+
+==== Projektausschuss
+
+==== Qualitätssicherung
+
+==== Product Owner
+
+Der Product Owner verwaltet das Backlog und priorisiert die Anforderungen.
+
+
+==== Development Lead
+
+Der Development Lead koordiniert die Entwicklungsaufgaben und das Team der Entwickler.
+
+==== Projektteam
+
+==== Liste der Stakeholder
+
+Die Stakeholder werden durch die Leitung von cimt objects Berlin vertreten.
+
+=== Projektablauforganisation
+
+==== Projekt-Phasen
+
+===== Erstellung der Projektdokumentation
+
+Die Projektdokumentation besteht aus mehreren Dokumenten, die jeweils die Entwicklung <<ehb>>, den Betrieb <<bhb>> und die Projektorganisation <<phb>> beschreiben.
+
+== Verschiedenes
+
+=== Erreichbarkeiten
+
+[title="Dokumenthistorie", id="Table-{counter:table-number}", options="header"]
+|===
+| Rolle            | Name               | Email
+| Product Owner    | John Wieland Höche | john.hoeche@cimt-ag.de
+| Product Owner    | Geraldine Bauer    | geraldine.bauer@cimt-ag.de
+| Development Lead | Thomas Peetz       | thomas.peetz@cimt-ag.de
+| Auftraggeber     | Oliver Fromm       | oliver.fromm@cimt-ag.de
+| Auftraggeber     | Frank Füllbier     | frank.fuellbier@cimt-ag.de
+|===
+
+
+[appendix, bibliography]
+== Referenzen
+
+[appendix, glossary]
+== Glossar
+
+[horizontal, glossary]
+[[purr]]PURR:: Platz- und Raum-Reservierung
+
+[appendix, index]
+== Index
+
+[appendix]
+== Verzeichnisse
+
+=== Abbildungsverzeichnis
+
+=== Tabellenverzeichnis
+
+<<Table-1, Tabelle 1>> <<Table-1>>
+<<Table-2, Tabelle 2>> <<Table-2>>

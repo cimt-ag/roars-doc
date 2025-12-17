@@ -64,7 +64,6 @@ In Vorbereitung auf den Projektstart werden nachfolgend Anforderungen und Abnahm
 - Schnellbuchung
 - Mehrere Plätze buchen
 - Bilder anzeigen
-- Jahresauswertung für Steuererklärung 
 - Abwesenheiten aus ZEP übertragen
 - Wochen- oder Monatsbuchung
 - Wochentag benennen
@@ -87,6 +86,9 @@ In Vorbereitung auf den Projektstart werden nachfolgend Anforderungen und Abnahm
 
 === Projektabgrenzung
 
+Die Unzufriedenheit mit <<purr>> führte zu Konkurrenzprojekten <<ritch>> und <<roars>>.
+Diese Projekte wurden unabhängig und auf eigene Initiative gestartet und sind nicht aktiv beziehungsweise eingestellt.
+
 === Voraussichtliche Kosten
 
 === Projektrisiken
@@ -96,6 +98,8 @@ In Vorbereitung auf den Projektstart werden nachfolgend Anforderungen und Abnahm
 ==== Finanzielle Risiken
 
 ==== Akzeptanz
+
+Die Akzeptanz wird durch die Benutzer in Pre-Prod-Deployments gemessen.
 
 == Projektorganisation
 
@@ -122,7 +126,11 @@ Eine Ausweitung der Nutzung durch andere Standorte und andere cimt Gesellschafte
 Die Qualitätssicherung ist eine zentrale Funktion in der Entwicklung und wird zum Teil in der Entwicklung von Beginn an implementiert.
 Die weiteren Aufgaben der Qualitätssicherung in Bezug auf Sicherheit wird durch die Product Owner und den Development Lead koordiniert.
 
-==== [[Product Owner]]Product Owner
+==== Auftraggeber
+
+Der Auftraggeber stellt Anforderungen und nimmt das Projekt ab.
+
+==== Product Owner
 
 Der Product Owner verwaltet das Backlog und priorisiert die Anforderungen.
 
@@ -143,9 +151,10 @@ Die Stakeholder werden durch die Leitung von cimt objects Berlin vertreten.
 ==== Projekt-Phasen
 
 Das Projekt wird iterativ in Sprints nach der Scrum Methode durchgeführt.
-Das Team legt in Abstimmung mit den (((Product Owner))) die Ziele des jeweiligen Sprints fest.
+Das Team legt in Abstimmung mit den <<Product Owner>> die Ziele des jeweiligen Sprints fest.
 
 In Vorbereitung auf das Kickoff-Meeting werden nachfolgend erforderliche Anforderungen für die ersten Sprints genannt:
+
 - Aufsetzen der Entwicklungsumgebung für verschiedene Bereiche (Test, Produktion)
 - Implementierung der Anmeldung über den Windows Login
 - Erstellung des Datenbankmodells nach den bisher gesammelten Anforderungen der PURR-Anwender aus Berlin
@@ -160,14 +169,14 @@ Die Einrichtung eines Ticketsystems (Jira, GitHub, o.ä.) wird im Kickoff-Meetin
 
 === Erreichbarkeiten
 
-[title="Dokumenthistorie", id="Table-{counter:table-number}", options="header"]
+[title="Erreichbarkeiten", id="Table-{counter:table-number}", options="header"]
 |===
-| Rolle            | Name               | Email
-| Product Owner    | John Wieland Höche | john-wieland.hoeche@cimt-ag.de
-| Product Owner    | Geraldine Bauer    | geraldine.bauer@cimt-ag.de
-| Development Lead | Thomas Peetz       | thomas.peetz@cimt-ag.de
-| Auftraggeber     | Oliver Fromm       | oliver.fromm@cimt-ag.de
-| Auftraggeber     | Frank Füllbier     | frank.fuellbier@cimt-ag.de
+| Rolle                | Name               | Email
+| <<Product Owner>>    | John Wieland Höche | john-wieland.hoeche@cimt-ag.de
+| <<Product Owner>>    | Geraldine Bauer    | geraldine.bauer@cimt-ag.de
+| <<Development Lead>> | Thomas Peetz       | thomas.peetz@cimt-ag.de
+| <<Auftraggeber>>     | Oliver Fromm       | oliver.fromm@cimt-ag.de
+| <<Auftraggeber>>     | Frank Füllbier     | frank.fuellbier@cimt-ag.de
 |===
 
 
@@ -179,6 +188,8 @@ Die Einrichtung eines Ticketsystems (Jira, GitHub, o.ä.) wird im Kickoff-Meetin
 
 [horizontal, glossary]
 [[purr]]PURR:: Platz- und Raum-Reservierung
+[[ritch]]RITCH:: Reservation Interface & Tracking Control Hub
+[[roars]]ROARS:: Reservation Objects Attendance Retrieval System
 
 [appendix, index]
 == Index
@@ -190,5 +201,5 @@ Die Einrichtung eines Ticketsystems (Jira, GitHub, o.ä.) wird im Kickoff-Meetin
 
 === Tabellenverzeichnis
 
-<<Table-1, Tabelle 1>> <<Table-1>>
-<<Table-2, Tabelle 2>> <<Table-2>>
+- <<Table-1, Tabelle 1>> <<Table-1>>
+- <<Table-2, Tabelle 2>> <<Table-2>>

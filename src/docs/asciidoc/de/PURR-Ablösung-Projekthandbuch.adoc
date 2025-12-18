@@ -180,6 +180,52 @@ Die Einrichtung eines Ticketsystems (Jira, GitHub, o.ä.) wird im Kickoff-Meetin
 |===
 
 
+[appendix]
+== Architektur Vorschläge
+
+Für die Neuentwicklung stehen verschiedene Frameworks und Programmiersprachen zur Auswahl.
+
+=== Server-Side Script Language
+
+<<purr>> ist in PHP entwickelt und kommt ohne weitere Frameworks aus.
+
+
+=== Trennung von Frontend und Backend
+
+Zur Entkoppelung von Frontend und Backend stehen unterschiedliche Frameworks zur Auswahl.
+Eine Trennung vereinfacht die Entwicklung und bedingt das Design-By-Contract Prinzip.
+
+==== Backend
+
+Das Backend beinhaltet den Zugang zur Datenbank und administrativer Aufgaben.
+Für externen Zugang (Frontend und andere) wird ein REST-Interface bereitgestellt.
+
+===== Python
+
+Ein REST-Interface in Python kann mit Hilfe verschiedener Frameworks implementiert werden.
+Flask und Django sind mögliche Kandidaten.
+
+===== Java
+
+Für Java existieren verschiedene Frameworks, wie z.B. Javalin, Quarkus oder Springboot.
+Diese Frameworks unterscheiden sich in der Nutzung von Resources, Dependency-Injection und IDE Unterstützung.
+
+==== Frontend
+
+Als Programmiersprachen sind Javascript und Typescript die häufigsten Vertreter.
+
+===== Angular
+
+Angular ist mit dem gesamten Ökosystem die gängigste Wahl für Unternehmensanwendungen.
+
+===== Vue.js
+
+Vue.js ist eine leichtgewichtige Alternative zu Angular und eines der Merkmale ist die Definition von Layout, Script und Style in einer .vue-Datei.
+
+===== React
+
+React ist ein weiteres Framework, das in der Webentwicklung Verwendung findet.
+
 [appendix, bibliography]
 == Referenzen
 
